@@ -1,0 +1,169 @@
+*,
+*:after,
+*:before {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    height: 100%;
+}
+body {
+    min-height: 100%;
+    background-color: #eee;
+    position: relative;
+    padding: 15px;
+    font-family: sans-serif;
+}
+
+
+.carrousel__container {
+    height: 300px;
+    max-width: 800px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 460px) {
+    .carrousel__container {
+        height: 500px;
+    }
+}
+
+.carrousel {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+    box-shadow: 0px 5px 8px rgba(0,0,0,.3);
+    border-radius: 8px;
+    order: 2;
+
+}
+
+@media (max-width: 460px) {
+    .carrousel {
+        order: 0;
+        flex-direction: column;
+    }
+}
+
+.image {
+    width: 50%;
+    height: 100%;
+    position: relative;
+    
+}
+
+@media (max-width: 460px)
+{
+    .image {
+        width: 100%;
+    }
+}
+
+.img {
+    max-width: 100%;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+        top:0;
+        left: 0;
+    opacity: 0;
+    transform: scale(1.1);
+    transition: all .6s ease-in-out;
+}
+
+.description {
+    width: 50%;
+    height: 100%;
+    background-color: white;
+    position: relative;
+    z-index: 1;
+    border-radius: 8px;
+    text-align: center;
+    position: relative;
+}
+
+@media (max-width: 460px)
+{
+    .description {
+        width: 100%;
+    }
+}
+
+.descripciones {
+    position: absolute;
+    top:0;
+    left: 0;
+    padding: 40px 20px;
+    width: 100%;
+    height: 100%;  
+    opacity: 0;
+    transition: all .6s ease-in-out;
+}
+
+.current {
+    opacity: 1;
+    transform: none;
+}
+
+.description h2 {
+    color: #012244;
+    margin-bottom: 20px;
+}
+
+.description p {
+    text-align: left;
+    color: #012244;
+    opacity: .8;
+    line-height: 2;
+}
+
+.description::after {
+    content: "";
+    position: absolute;
+    left: -50px;
+    top: 0;
+    width: 100%;
+    background: white;
+    height: 100%;
+    transform: skew(-12deg);
+    z-index: -1;
+}
+
+@media (max-width: 460px) 
+{
+    .description::after {
+        content: none;
+    }
+}
+
+.pips {
+    margin: 20px 0;
+    cursor:pointer;
+}
+
+@media (max-width: 460px) {
+    .pips {
+        text-align: center;
+    }
+}
+
+.pip {
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    opacity: .5;
+    margin-right: 2.5px;
+    background-color: #012244;
+    border-radius: 50%;
+    
+}
+
+.pip.current {
+    opacity: 1;
+}
